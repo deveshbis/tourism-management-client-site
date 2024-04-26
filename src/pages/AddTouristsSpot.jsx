@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 
 
 const AddTouristsSpot = () => {
@@ -24,15 +25,22 @@ const AddTouristsSpot = () => {
 
         fetch('http://localhost:5000/touristSpot', {
             method: 'POST',
-            headers:{
-              'content-type': 'application/json'
-            }, 
+            headers: {
+                'content-type': 'application/json'
+            },
             body: JSON.stringify(newTouristSpots)
-          })
+        })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'User Added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
             })
 
     }

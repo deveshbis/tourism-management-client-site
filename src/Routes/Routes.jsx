@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
+        loader: () => fetch('http://localhost:5000/touristSpot'),
       },
       {
         path: '/touristSpot',
