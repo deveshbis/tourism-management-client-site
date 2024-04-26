@@ -5,12 +5,13 @@ import {
 import Root from "../layout/Root";
 import Home from "../pages/Home";
 import ErrorPage from "../component/ErrorPage";
-import TouristsSpot from "../pages/TouristsSpot";
 import AddTouristsSpot from "../pages/AddTouristsSpot";
 import MyList from "../pages/MyList";
 import Login from "../component/Login";
 import SignUp from "../component/SignUp";
 import ViewDetails from "../pages/ViewDetails";
+import AllTouristsSpot from "../pages/AllTouristsSpot";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
+        loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
       },
       {
         path: '/touristSpot',
-        element: <TouristsSpot></TouristsSpot>,
+        element: <AllTouristsSpot></AllTouristsSpot>,
       },
       {
         path: '/addTouristSpot',
@@ -42,9 +44,12 @@ const router = createBrowserRouter([
         path: '/signUp',
         element: <SignUp></SignUp>,
       },
+
       {
         path: '/viewDtails/:id',
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoute>
+          <ViewDetails></ViewDetails>
+        </PrivateRoute>,
       },
 
 

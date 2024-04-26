@@ -1,6 +1,6 @@
 
 
-const TouristsSpot = () => {
+const AllTouristsSpot = () => {
     return (
         <div>
             Tourists Spot
@@ -8,4 +8,4 @@ const TouristsSpot = () => {
     );
 };
 
-export default TouristsSpot;
+export default AllTouristsSpot;

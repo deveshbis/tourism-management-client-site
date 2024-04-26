@@ -1,5 +1,5 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
 
 
@@ -7,10 +7,17 @@ const SocialLogin = () => {
 
     const { gitHubLogin, googleLogin } = useAuth();
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state || '/';
+
     const handleSocialLogin = socialProvider => {
         socialProvider()
             .then(result => {
-                console.log(result);
+                if (result.user) {
+                    navigate(from);
+                }
             })
     }
     return (
