@@ -1,12 +1,17 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../Hook/useAuth";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import SocialLogin from "./SocialLogin";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
 
     const { signInUser} = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state || '/';
 
     const {
         register,
@@ -17,14 +22,11 @@ const Login = () => {
     const onSubmit = (data) => {
         const { email, password } = data;
         signInUser(email, password)
-        .then(result=>{
-            if(result.user){
-                toast.success("Login successful!");
-                
+        .then(result => {
+            if (result.user) {
+                navigate(from);
             }
-        }).catch(error => {
-            toast.error(`Failed to register: ${error.message}`);
-        });
+        })
     }
         return (
             

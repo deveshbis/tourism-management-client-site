@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import useAuth from "../Hook/useAuth";
@@ -8,6 +8,8 @@ import useAuth from "../Hook/useAuth";
 const SignUp = () => {
 
     const { createUser } = useAuth();
+    const navigate = useNavigate();
+    const from = '/';
 
     const {
         register,
@@ -18,10 +20,23 @@ const SignUp = () => {
     const onSubmit = (data) => {
         const { email, password} = data;
         createUser(email, password)
-        .then(result => {
-            console.log(result);
+        .then(() => {
+            navigate(from)
         })
     }
+
+    const passwordValidation = {
+        required: "Password is required",
+        minLength: {
+            value: 6,
+            message: "Password must have at least 6 characters"
+        },
+        validate: {
+            uppercase: v => /[A-Z]/.test(v) || "Password must include an uppercase letter",
+            lowercase: v => /[a-z]/.test(v) || "Password must include a lowercase letter",
+        }
+    };
+
     return (
         <div className="flex justify-center items-center">
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-300">
@@ -43,7 +58,7 @@ const SignUp = () => {
                     </div>
                     <div className="space-y-1 text-sm">
                         <label className="block dark:text-gray-600">Password</label>
-                        <input type="password" name="password" placeholder="Password" className="w-full px-4 py-3 rounded-md " {...register("password", { required: true })} />
+                        <input type="password" name="password" placeholder="Password" className="w-full px-4 py-3 rounded-md "  {...register("password", passwordValidation)} />
                         {errors.password && <span className="text-red-500">{errors.password.message}</span>}
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm bg-black text-white">Sign Up</button>
