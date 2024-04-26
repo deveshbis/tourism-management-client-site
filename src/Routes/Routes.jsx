@@ -10,6 +10,7 @@ import AddTouristsSpot from "../pages/AddTouristsSpot";
 import MyList from "../pages/MyList";
 import Login from "../component/Login";
 import SignUp from "../component/SignUp";
+import ViewDetails from "../pages/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
         path: '/signUp',
         element: <SignUp></SignUp>,
       },
+      {
+        path: '/viewDtails/:id',
+        element: <ViewDetails></ViewDetails>,
+      },
+
 
     ]
   },

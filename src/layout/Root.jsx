@@ -4,7 +4,7 @@ import NavBar from "../component/NavBar";
 
 const Root = () => {
     return (
-        <div>
+        <div className="px-20">
             <NavBar></NavBar>
             <Outlet></Outlet>
         </div>
