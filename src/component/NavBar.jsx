@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../Hook/useAuth";
+import { useState } from "react";
 
 
 const NavBar = () => {
+
+    const { user, logoutUser } = useAuth();
 
     const navLinks = (
         <>
@@ -11,6 +15,16 @@ const NavBar = () => {
             <li><NavLink to='/myList'>My List</NavLink></li>
         </>
     );
+
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovering(false);
+    };
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -34,10 +48,28 @@ const NavBar = () => {
                         }
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <Link to='/login'>
-                        <button className="btn">Login</button>
-                    </Link>
+                <div className="navbar-end flex items-center space-x-4">
+                {user ? (
+                    <div className="flex items-center space-x-4 relative">
+                        <div
+                            className="dropdown dropdown-end"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar relative">
+                                <img src={user?.photoURL || "https://i.ibb.co/d7Ppj2d/devesh-jpg.jpg"} className="w-10 rounded-full" alt="User Avatar" />
+                            </label>
+                            {isHovering && (
+                                <p className="absolute top-0 left-0 transform -translate-x-full shadow-lg rounded px-2 py-1">{user.displayName || 'Unknown User'}</p>
+                            )}
+                        </div>
+
+                        <button onClick={logoutUser} className="btn btn-sm btn-ghost font-semibold text-[16px]">Logout</button>
+
+                    </div>
+                ) : (
+                    <Link to='/login'><button className="p-2 rounded-xl font-semibold text-[16px]">Login</button></Link>
+                )}
                 </div>
             </div>
         </div>
