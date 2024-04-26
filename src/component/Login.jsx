@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
-import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
+import { ToastContainer, toast } from "react-toastify";
+import SocialLogin from "./SocialLogin";
 
 
 const Login = () => {
 
-    const { signInUser } = useAuth();
+    const { signInUser} = useAuth();
 
     const {
         register,
@@ -17,14 +17,19 @@ const Login = () => {
     const onSubmit = (data) => {
         const { email, password } = data;
         signInUser(email, password)
-            .then(result => {
-                console.log(result);
-            }).catch(error => {
-                console.log(error);
-            })
-        }
+        .then(result=>{
+            if(result.user){
+                toast.success("Login successful!");
+                
+            }
+        }).catch(error => {
+            toast.error(`Failed to register: ${error.message}`);
+        });
+    }
         return (
+            
             <div className="flex justify-center items-center">
+                <ToastContainer></ToastContainer>
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-300">
                     <h1 className="text-2xl font-bold text-center">Login</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -40,22 +45,7 @@ const Login = () => {
                         </div>
                         <button className="block w-full p-3 text-center rounded-sm bg-black text-white">Sign in</button>
                     </form>
-                    <div className="flex items-center pt-4 space-x-1">
-                        <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-                        <p className="px-3 text-sm dark:text-gray-600">Login with social accounts</p>
-                        <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-                    </div>
-                    <div className="flex justify-center space-x-4">
-                        <button aria-label="Log in with Google" className="p-3 rounded-sm">
-                            <FaGoogle />
-                        </button>
-                        <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-                            <FaGithub></FaGithub>
-                        </button>
-                    </div>
-                    <p className="text-xs text-center sm:px-6 dark:text-gray-600">Do not have an account?
-                        <Link to='/signUp' className="underline text-blue-700"> Sign up</Link>
-                    </p>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         );
