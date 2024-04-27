@@ -9,7 +9,7 @@ import ToristSpotCard from "../component/ToristSpotCard";
 
 const Home = () => {
     const allpost = useLoaderData();
-    
+    console.log(allpost);
     
     return (
         <div>
