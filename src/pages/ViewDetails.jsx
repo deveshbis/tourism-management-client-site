@@ -1,45 +1,3 @@
-// import { useLoaderData, useParams } from "react-router-dom";
-
-
-
-// const ViewDetails = () => {
-//     const { id } = useParams();
-//     const details = useLoaderData();
-//     console.log(details);
-
-//     const detailsId = parseInt(id, 10);
-
-//     const viewDtails = details.find(viewDtails => viewDtails.id === detailsId);
-
-
-
-//     return (
-//         <section className='mt-20 px-5'>
-//             <div className="card w-96 bg-base-100 shadow-xl">
-//                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-//                 <div className="card-body">
-//                     <h2 className="card-title">{viewDtails.spotName}</h2>
-//                     <p>If a dog chews shoes whose shoes does he choose?</p>
-//                     <div className="card-actions justify-end">
-//                         <button className="btn btn-primary">Buy Now</button>
-//                     </div>
-//                 </div>
-//             </div>
-
-//         </section>
-//     );
-// };
-
-// export default ViewDetails;
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -55,15 +13,8 @@ const ViewDetails = () => {
             .then(data => {
                 setDetails(data)
             })
-
-
     }, [id]);
-
-
-
-
-
-
+    
     return (
         <section className='mt-20 px-5'>
             <div className="mb-10">
