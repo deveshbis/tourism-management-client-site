@@ -54,9 +54,9 @@ const MyList = () => {
     }
 
     return (
-        <div className="mt-20">
+        <div className="mt-20 overflow-x-auto">
 
-            <table className=" w-full border-collapse border border-gray-400">
+            <table className=" lg:w-full md:w-full w-96 border-collapse border border-gray-400">
                 <thead>
                     <tr>
                         <th className="border border-gray-400 px-4 py-2 text-3xl text-center font-extrabold">Image</th>
@@ -75,7 +75,7 @@ const MyList = () => {
                             <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">{card.spotsName}</td>
                             <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">${card.cost}</td>
                             <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">{card.seasonality}</td>
-                            <td className="border border-gray-400 px-4 py-2 text-xl text-center font-bold">
+                            <td className="border border-gray-400 px-4 py-2 text-xl text-center font-bold md:space-y-2 space-y-2">
                                 <Link to={`/myListCardUpdate/${card._id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Update</button></Link>
                                 <button onClick={() => handleDelete(card._id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                             </td>

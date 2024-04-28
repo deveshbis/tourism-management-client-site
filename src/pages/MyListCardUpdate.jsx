@@ -79,7 +79,7 @@ const MyListCardUpdate = () => {
 
                 />
               </div>
-              <div className="flex gap-10">
+              <div className="lg:flex md:flex md:gap-5 lg:gap-10">
 
                 <div className="form-control">
                   <label className="label">
@@ -108,7 +108,7 @@ const MyListCardUpdate = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-10">
+              <div className="lg:flex md:flex md:gap-5 lg:gap-10">
 
                 <div className="form-control">
                   <label className="label">
@@ -137,7 +137,7 @@ const MyListCardUpdate = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-10">
+              <div className="lg:flex md:flex md:gap-5 lg:gap-10">
 
                 <div className="form-control">
                   <label className="label">
@@ -166,7 +166,7 @@ const MyListCardUpdate = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-10">
+              <div className="lg:flex md:flex md:gap-5 lg:gap-10">
 
                 <div className="form-control">
                   <label className="label">

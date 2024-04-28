@@ -19,7 +19,7 @@ const Home = () => {
             <div>
                 <h2 className="text-4xl font-extrabold text-center">Tourists Spots</h2>
                 <p className="text-center font-semibold">Discover breathtaking tourist spots worldwide. From iconic landmarks to hidden gems, explore diverse cultures and natural wonders. <br />Plan your next adventure and immerse yourself in unforgettable experiences.</p>
-                <div className=" grid grid-cols-3 gap-3 mt-5 p-3">
+                <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-5 p-3">
                     {
                         allpost.map(postCard => <ToristSpotCard key={postCard.id} allpost={postCard}></ToristSpotCard>)
                     }

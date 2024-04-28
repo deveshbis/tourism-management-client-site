@@ -6,7 +6,7 @@ const AllTouristsSpot = () => {
     const useLoaded = useLoaderData();
 
     return (
-        <div className="grid grid-cols-3 gap-3 mt-20 p-2">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3   mt-20 p-2">
             {
                 useLoaded.map(card => <div key={card._id} className="card  glass border border-black border-solid">
 
