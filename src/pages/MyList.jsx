@@ -51,28 +51,38 @@ const MyList = () => {
 
             }
         });
-
-
     }
 
-
     return (
-        <div className="grid grid-cols-3 gap-3 mt-20">
-            {
-                spotCard.map(card => <div key={card._id} className="card  glass ">
-                    <figure><img src={card.image} alt="car!" className='w-full h-[300px]' /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">{card.spotsName}</h2>
-                        <p>$: {card.cost}</p>
-                        <p>Season: {card.seasonality}</p>
-                        <div className="card-actions justify-end">
-                            <Link to={`/myListCardUpdate/${card._id}`}><button className="btn btn-primary">Update</button></Link>
+        <div className="mt-20">
 
-                            <button onClick={() => handleDelete(card._id)} className="btn btn-primary">Delete</button>
-                        </div>
-                    </div>
-                </div>)
-            }
+            <table className=" w-full border-collapse border border-gray-400">
+                <thead>
+                    <tr>
+                        <th className="border border-gray-400 px-4 py-2 text-3xl text-center font-extrabold">Image</th>
+                        <th className="border border-gray-400 px-4 py-2 text-3xl text-center font-extrabold">Spot Name</th>
+                        <th className="border border-gray-400 px-4 py-2 text-3xl text-center font-extrabold">Cost</th>
+                        <th className="border border-gray-400 px-4 py-2 text-3xl text-center font-extrabold">Seasonality</th>
+                        <th className="border border-gray-400 px-4 py-2 text-3xl text-center font-extrabold ">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {spotCard.map((card) => (
+                        <tr key={card._id}>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <img src={card.image} alt="Spot" className="w-full h-24" />
+                            </td>
+                            <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">{card.spotsName}</td>
+                            <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">${card.cost}</td>
+                            <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">{card.seasonality}</td>
+                            <td className="border border-gray-400 px-4 py-2 text-xl text-center font-bold">
+                                <Link to={`/myListCardUpdate/${card._id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Update</button></Link>
+                                <button onClick={() => handleDelete(card._id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
