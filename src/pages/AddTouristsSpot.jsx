@@ -1,7 +1,22 @@
 import Swal from 'sweetalert2'
+import useAuth from '../Hook/useAuth';
+import { Navigate } from 'react-router-dom';
 
 
 const AddTouristsSpot = () => {
+
+    const { user, loading } = useAuth();
+
+    if(loading){
+        return <div className="flex justify-center items-center mt-48 mb-48">
+            <span className="loading loading-infinity loading-lg"></span>
+        </div>
+    }
+
+    if (!user) {
+        return <Navigate to='/login' state={location?.pathname || '/'}></Navigate>
+    }
+
     const handleAddTouristSpot = event => {
         event.preventDefault();
 
@@ -23,7 +38,7 @@ const AddTouristsSpot = () => {
 
         console.log(newTouristSpots);
 
-        fetch('http://localhost:5000/touristSpot', {
+        fetch('http://localhost:5000/userData', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

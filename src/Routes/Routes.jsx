@@ -12,6 +12,7 @@ import SignUp from "../component/SignUp";
 import ViewDetails from "../pages/ViewDetails";
 import AllTouristsSpot from "../pages/AllTouristsSpot";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyListCardUpdate from "../pages/MyListCardUpdate";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,12 @@ const router = createBrowserRouter([
       {
         path: '/myList',
         element: <MyList></MyList>,
-        loader: () => fetch('http://localhost:5000/touristSpot'),
+        loader: () => fetch('http://localhost:5000/userData'),
+      },
+      {
+        path: '/myListCardUpdate/:id',
+        element: <MyListCardUpdate></MyListCardUpdate>,
+        loader: ({params}) => fetch(`http://localhost:5000/userData/${params.id}`),
       },
       {
         path: '/login',
@@ -48,9 +54,11 @@ const router = createBrowserRouter([
 
       {
         path: '/viewDtails/:id',
+        // loader: () => fetch('http://localhost:5000/touristSpot'),
         element: <PrivateRoute>
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
+        
       },
 
 
