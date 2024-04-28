@@ -20,38 +20,40 @@ const MyList = () => {
         return <Navigate to='/login' state={location?.pathname || '/'}></Navigate>
     }
 
-    const handleDelete = id => {
-        fetch(`http://localhost:5000/userData/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    Swal.fire({
-                        title: "Are you sure?",
-                        text: "You won't be able to revert this!",
-                        icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes, delete it!"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
+    const handleDelete = _id => {
+        console.log(_id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/deleteData/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
+                            const remainingCard = spotCard.filter(card => card._id !== _id)
+                            setSpotCard(remainingCard)
                         }
-                    });
+                    })
 
-                }
-            })
-        const remainingCard = spotCard.filter(card => card._id !== id)
-        setSpotCard(remainingCard)
+            }
+        });
+
+
     }
-
-
 
 
     return (
