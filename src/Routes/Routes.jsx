@@ -13,6 +13,7 @@ import ViewDetails from "../pages/ViewDetails";
 import AllTouristsSpot from "../pages/AllTouristsSpot";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyListCardUpdate from "../pages/MyListCardUpdate";
+import AllTouristSpotViewDtails from "../pages/AllTouristSpotViewDtails";
 
 const router = createBrowserRouter([
   {
@@ -28,14 +29,19 @@ const router = createBrowserRouter([
       {
         path: '/touristSpot',
         element: <AllTouristsSpot></AllTouristsSpot>,
+        loader: () => fetch('http://localhost:5000/userData'),
       },
       {
         path: '/addTouristSpot',
-        element: <AddTouristsSpot></AddTouristsSpot>,
+        element: <PrivateRoute>
+          <AddTouristsSpot></AddTouristsSpot>
+        </PrivateRoute>,
       },
       {
         path: '/myList',
-        element: <MyList></MyList>,
+        element: <PrivateRoute>
+          <MyList></MyList>
+        </PrivateRoute>,
         loader: () => fetch('http://localhost:5000/userData'),
       },
       {
@@ -43,7 +49,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyListCardUpdate></MyListCardUpdate>
         </PrivateRoute>,
-       
+
       },
       {
         path: '/login',
@@ -59,7 +65,12 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
-        
+      },
+      {
+        path: '/allTouristSpotViewDetails/:id',
+        element: <PrivateRoute>
+          <AllTouristSpotViewDtails></AllTouristSpotViewDtails>
+        </PrivateRoute>,
       },
 
 

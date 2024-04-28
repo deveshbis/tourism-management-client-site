@@ -7,7 +7,7 @@ const AddTouristsSpot = () => {
 
     const { user, loading } = useAuth();
 
-    if(loading){
+    if (loading) {
         return <div className="flex justify-center items-center mt-48 mb-48">
             <span className="loading loading-infinity loading-lg"></span>
         </div>
@@ -31,8 +31,8 @@ const AddTouristsSpot = () => {
         const seasonality = form.seasonality.value;
         const travelTime = form.travelTime.value;
         const visitors = form.visitors.value;
-        const email = form.email.value;
-        const name = form.name.value;
+        const email = user.email;
+        const name = user.displayName;
 
         const newTouristSpots = { image, spotsName, country, location, description, cost, seasonality, travelTime, visitors, email, name }
 
@@ -60,27 +60,29 @@ const AddTouristsSpot = () => {
 
     }
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+        <div> 
+            <div className="hero min-h-screen bg-base-200 mt-20">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Add Tourists Spot</h1>
                     </div>
                     <div className="card shrink-0 w-full bg-base-100">
                         <form onSubmit={handleAddTouristSpot} className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-bold">Image</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    name="image"
+                                    placeholder="Image url"
+                                    className="input input-bordered"
+                                    required
+                                />
+                            </div>
+
+
                             <div className="flex gap-10">
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text font-bold">Image</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="image"
-                                        placeholder="Image url"
-                                        className="input input-bordered"
-                                        required
-                                    />
-                                </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Tourists Spot Name</span>
@@ -93,8 +95,6 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
-                            </div>
-                            <div className="flex gap-10">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Country Name</span>
@@ -107,6 +107,9 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
+
+                            </div>
+                            <div className="flex gap-10">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Location</span>
@@ -119,8 +122,6 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
-                            </div>
-                            <div className="flex gap-10">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Short description</span>
@@ -133,6 +134,9 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
+
+                            </div>
+                            <div className="flex gap-10">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Average Cost</span>
@@ -145,8 +149,6 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
-                            </div>
-                            <div className="flex gap-10">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Seasonality</span>
@@ -159,6 +161,9 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
+
+                            </div>
+                            <div className="flex gap-10">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Travel Time</span>
@@ -171,8 +176,6 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
-                            </div>
-                            <div className="flex gap-10">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Total Visitors Per Year </span>
@@ -185,30 +188,6 @@ const AddTouristsSpot = () => {
                                         required
                                     />
                                 </div>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text font-bold">User Email </span>
-                                    </label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder=" Enter User Email"
-                                        className="input input-bordered"
-                                        required
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text font-bold">User Name</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder=" Enter User Name"
-                                    className="input input-bordered"
-                                    required
-                                />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add Tourist Spot</button>
