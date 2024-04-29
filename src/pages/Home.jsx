@@ -5,6 +5,8 @@ import PhotoGallery from "../component/PhotoGallery";
 import Review from "../component/Review";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { Fade } from "react-awesome-reveal";
+import CountryInfo from "../component/CountryInfo";
+
 
 
 
@@ -12,6 +14,8 @@ import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
     const allpost = useLoaderData();
+    
+    
     const [text] = useTypewriter({
         words: [' Spots'],
         loop: {},
@@ -38,6 +42,7 @@ const Home = () => {
                 </div>
 
             </div>
+            <CountryInfo></CountryInfo>
             <PhotoGallery></PhotoGallery>
             <Review></Review>
         </div>

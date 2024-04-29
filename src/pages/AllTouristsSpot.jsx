@@ -82,6 +82,8 @@ export default AllTouristsSpot;
 
 
 
+
+
 // import { Link, useLoaderData } from "react-router-dom";
 
 
@@ -117,14 +119,6 @@ export default AllTouristsSpot;
 // };
 
 // export default AllTouristsSpot;
-
-
-
-
-
-
-
-
 
 
 

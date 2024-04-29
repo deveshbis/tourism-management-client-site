@@ -14,6 +14,8 @@ import AllTouristsSpot from "../pages/AllTouristsSpot";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyListCardUpdate from "../pages/MyListCardUpdate";
 import AllTouristSpotViewDtails from "../pages/AllTouristSpotViewDtails";
+import AddCountry from "../pages/AddCountry";
+
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,7 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => fetch('https://tourism-management-server-site.vercel.app/touristSpot'),
       },
+  
       {
         path: '/touristSpot',
         element: <AllTouristsSpot></AllTouristsSpot>,
@@ -71,6 +74,20 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <AllTouristSpotViewDtails></AllTouristSpotViewDtails>
         </PrivateRoute>,
+      },
+
+
+
+
+
+
+
+
+
+
+      {
+        path: '/addCountry',
+        element: <AddCountry></AddCountry>,
       },
 
 
