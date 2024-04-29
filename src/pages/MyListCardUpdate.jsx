@@ -36,7 +36,7 @@ const MyListCardUpdate = () => {
 
     const updatedTouristSpots = { image, spotsName, country, location, description, travelTime, visitors, cost, seasonality }
 
-    fetch(`http://localhost:5000/updateData/${id}`, {
+    fetch(`https://tourism-management-server-site.vercel.app/updateData/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

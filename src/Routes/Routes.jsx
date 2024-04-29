@@ -24,12 +24,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/touristSpot'),
+        loader: () => fetch('https://tourism-management-server-site.vercel.app/touristSpot'),
       },
       {
         path: '/touristSpot',
         element: <AllTouristsSpot></AllTouristsSpot>,
-        loader: () => fetch('http://localhost:5000/userData'),
+        loader: () => fetch('https://tourism-management-server-site.vercel.app/userData'),
       },
       {
         path: '/addTouristSpot',
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyList></MyList>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/userData'),
+        loader: () => fetch('https://tourism-management-server-site.vercel.app/userData'),
       },
       {
         path: '/myListCardUpdate/:id',

@@ -9,7 +9,7 @@ const AllTouristSpotViewDtails = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/allTouristSingleDetails/${id}`)
+        fetch(`https://tourism-management-server-site.vercel.app/allTouristSingleDetails/${id}`)
             .then(res => res.json())
             .then(data => {
                 setDetails(data)

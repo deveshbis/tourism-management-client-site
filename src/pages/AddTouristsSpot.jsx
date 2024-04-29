@@ -38,7 +38,7 @@ const AddTouristsSpot = () => {
 
         console.log(newTouristSpots);
 
-        fetch('http://localhost:5000/userData', {
+        fetch('https://tourism-management-server-site.vercel.app/userData', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

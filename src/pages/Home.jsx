@@ -2,6 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../component/Banner";
 
 import ToristSpotCard from "../component/ToristSpotCard";
+import PhotoGallery from "../component/PhotoGallery";
+import Review from "../component/Review";
 
 
 
@@ -26,6 +28,8 @@ const Home = () => {
                 </div>
 
             </div>
+            <PhotoGallery></PhotoGallery>
+            <Review></Review>
         </div>
     );
 };
