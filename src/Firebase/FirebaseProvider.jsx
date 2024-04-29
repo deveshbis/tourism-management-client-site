@@ -14,6 +14,7 @@ const FirebaseProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [reload, setReload] = useState(false);
 
     //create user
     const createUser = (email, password) => {
@@ -41,8 +42,10 @@ const FirebaseProvider = ({children}) => {
 
     //logout user
     const logoutUser = () => {
+        setLoading(true)
         setUser(null)
         signOut(auth);
+        setReload(prevState => !prevState);
     }
 
 
@@ -58,7 +61,7 @@ const FirebaseProvider = ({children}) => {
             
         });
         return () => unSubscribe();
-    }, [])
+    }, [reload])
 
     const allValue = {
         createUser,
@@ -67,7 +70,8 @@ const FirebaseProvider = ({children}) => {
         gitHubLogin,
         googleLogin,
         logoutUser,
-        loading
+        loading,
+        setReload
     };
 
     return (

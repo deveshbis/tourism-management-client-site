@@ -1,7 +1,8 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { Link, Navigate, useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
 import useAuth from "../Hook/useAuth";
+
 
 
 const MyList = () => {
@@ -33,7 +34,7 @@ const MyList = () => {
 
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://tourism-management-server-site.vercel.app/userData/deleteData/${_id}`, {
+                fetch(`https://tourism-management-server-site.vercel.app/deleteData/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -53,6 +54,7 @@ const MyList = () => {
         });
     }
 
+    
     return (
         <div className="mt-20 overflow-x-auto">
 

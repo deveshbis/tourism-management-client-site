@@ -4,17 +4,25 @@ import { useEffect, useState } from "react";
 
 
 const NavBar = () => {
+    const { user, logoutUser } = useAuth();
+    const [isHovering, setIsHovering] = useState(false);
     const [theme, setTheme] = useState('light');
     const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const navLinks = (
+        <>
+            <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to='/touristSpot'>All Tourists Spot</NavLink></li>
+            <li><NavLink to='/addTouristSpot'>Add Tourists Spot</NavLink></li>
+            <li><NavLink to='/myList'>My List</NavLink></li>
+        </>
+    );
+
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
-    useEffect(() => {
-        localStorage.setItem('theme', theme)
-        const localTheme = localStorage.getItem('theme')
-        document.querySelector('html').setAttribute('data-theme', localTheme)
-    }, [theme])
+    
 
     const handleToggleTheme = e => {
         if (e.target.checked) {
@@ -25,19 +33,6 @@ const NavBar = () => {
         }
     }
 
-    const { user, logoutUser } = useAuth();
-
-    const navLinks = (
-        <>
-            <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/touristSpot'>All Tourists Spot</NavLink></li>
-            <li><NavLink to='/addTouristSpot'>Add Tourists Spot</NavLink></li>
-            <li><NavLink to='/myList'>My List</NavLink></li>
-            <li><NavLink to='/addCountry'>Add Country</NavLink></li>
-        </>
-    );
-
-    const [isHovering, setIsHovering] = useState(false);
 
     const handleMouseEnter = () => {
         setIsHovering(true);
@@ -46,6 +41,15 @@ const NavBar = () => {
     const handleMouseLeave = () => {
         setIsHovering(false);
     };
+
+
+    useEffect(() => {
+        localStorage.setItem('theme', theme)
+        const localTheme = localStorage.getItem('theme')
+        document.querySelector('html').setAttribute('data-theme', localTheme)
+    }, [theme])
+
+
     return (
         <div>
             <div className="navbar bg-blue-900 fixed w-full text-white z-20 top-0 start-0  border-gray-200 rounded-xl" >

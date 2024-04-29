@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import useAuth from "../Hook/useAuth";
 
 const ViewDetails = () => {
     const { id } = useParams();
     const [details, setDetails] = useState({});
 
-
+    const {user, loading} = useAuth()
+    
     useEffect(() => {
 
         fetch(`https://tourism-management-server-site.vercel.app/singleDetails/${id}`)
@@ -14,6 +16,16 @@ const ViewDetails = () => {
                 setDetails(data)
             })
     }, [id]);
+
+    if(loading){
+        return <div className="flex justify-center items-center mt-48 mb-48">
+            <span className="loading loading-infinity loading-lg"></span>
+        </div>
+    }
+
+    if (!user) {
+        return <Navigate to='/login' state={location?.pathname || '/'}></Navigate>
+    }
     
     return (
         <section className='mt-20 px-5'>

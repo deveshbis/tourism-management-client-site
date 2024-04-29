@@ -6,7 +6,7 @@ const useData = () => {
     useEffect(() => {
         
         const fetchData = async () => {
-            const response = await fetch("http://localhost:5000/countryData");
+            const response = await fetch("https://tourism-management-server-site.vercel.app/countryData");
             const data = await response.json();
             setCountryData(data);
         };

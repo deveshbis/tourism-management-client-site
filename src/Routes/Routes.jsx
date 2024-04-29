@@ -14,7 +14,6 @@ import AllTouristsSpot from "../pages/AllTouristsSpot";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyListCardUpdate from "../pages/MyListCardUpdate";
 import AllTouristSpotViewDtails from "../pages/AllTouristSpotViewDtails";
-import AddCountry from "../pages/AddCountry";
 
 
 const router = createBrowserRouter([
@@ -74,20 +73,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <AllTouristSpotViewDtails></AllTouristSpotViewDtails>
         </PrivateRoute>,
-      },
-
-
-
-
-
-
-
-
-
-
-      {
-        path: '/addCountry',
-        element: <AddCountry></AddCountry>,
       },
 
 

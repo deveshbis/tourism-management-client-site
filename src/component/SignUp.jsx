@@ -1,13 +1,14 @@
 
 import { Link, useNavigate } from "react-router-dom";
-
+import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
 import useAuth from "../Hook/useAuth";
+import { ToastContainer, toast } from "react-toastify";
 
 
 const SignUp = () => {
 
-    const { createUser } = useAuth();
+    const { createUser, setReload } = useAuth();
     const navigate = useNavigate();
     const from = '/';
 
@@ -18,11 +19,16 @@ const SignUp = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        const { email, password} = data;
+        const { email, password } = data;
         createUser(email, password)
-        .then(() => {
-            navigate(from)
-        })
+            .then(() => {
+                toast.success("Registration successful!");
+                navigate(from, { replace: true });
+                setReload(true)
+            })
+            .catch(() =>{
+                toast.error('Failed to register! this email already exist');
+            });
     }
 
     const passwordValidation = {
@@ -38,7 +44,9 @@ const SignUp = () => {
     };
 
     return (
+        
         <div className="flex justify-center items-center mt-20">
+            <ToastContainer />
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-300">
                 <h1 className="text-2xl font-bold text-center">Sign Up</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

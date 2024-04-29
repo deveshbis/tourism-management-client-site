@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../Hook/useAuth";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer, toast} from "react-toastify";
 import SocialLogin from "./SocialLogin";
+import 'react-toastify/dist/ReactToastify.css';
 import { useLocation, useNavigate } from "react-router-dom";
 
 
@@ -24,9 +25,12 @@ const Login = () => {
         signInUser(email, password)
         .then(result => {
             if (result.user) {
+                toast.success("Login successful!");
                 navigate(from);
             }
-        })
+        }).catch(() => {
+            toast.error('user email and password are wrong');
+        });
     }
         return (
             <div className="flex justify-center items-center mt-20">
