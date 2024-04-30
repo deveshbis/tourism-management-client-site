@@ -1,19 +1,10 @@
-
 import { useState } from "react";
-import { Link, Navigate, useLoaderData, useParams } from "react-router-dom";
-import useAuth from "../Hook/useAuth";
+import { Link, useLoaderData } from "react-router-dom";
+
 
 const AllTouristsSpot = () => {
     const loadedData = useLoaderData();
-    const { country } = useParams();
     const [sortOrder, setSortOrder] = useState("asc");
-
-    const { loading } = useAuth();
-    if(loading){
-        return <div className="flex justify-center items-center mt-48 mb-48">
-            <span className="loading loading-infinity loading-lg"></span>
-        </div>
-    }
 
     const sortData = (data, order) => {
         return data.sort((a, b) => {
@@ -27,6 +18,7 @@ const AllTouristsSpot = () => {
 
 
     const handleSortChange = (e) => {
+        console.log(e.target.value);
         setSortOrder(e.target.value);
     };
 
@@ -34,15 +26,16 @@ const AllTouristsSpot = () => {
     const sortedData = sortData(loadedData, sortOrder);
 
     return (
-        <div>
+        <div className="mt-20">
 
-            <div className="mt-20">
+            <div className="flex justify-center">
                 <label htmlFor="sort">Sort by Average Cost:</label>
                 <select id="sort" className="ml-2" onChange={handleSortChange}>
                     <option value="asc">Lowest to Highest</option>
                     <option value="desc">Highest to Lowest</option>
                 </select>
             </div>
+
 
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-8 p-2">
@@ -83,34 +76,6 @@ const AllTouristsSpot = () => {
 };
 
 export default AllTouristsSpot;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

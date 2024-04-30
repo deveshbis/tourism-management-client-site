@@ -2,6 +2,9 @@ import {  useState } from "react";
 import { Link, Navigate, useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
 import useAuth from "../Hook/useAuth";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { FaRegEdit } from "react-icons/fa";
+
 
 
 
@@ -49,12 +52,10 @@ const MyList = () => {
                             setSpotCard(remainingCard)
                         }
                     })
-
             }
         });
     }
 
-    
     return (
         <div className="mt-20 overflow-x-auto">
 
@@ -78,8 +79,8 @@ const MyList = () => {
                             <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">${card.cost}</td>
                             <td className="border border-gray-400 px-4 py-2 text-[24px] text-center font-bold">{card.seasonality}</td>
                             <td className="border border-gray-400 px-4 py-2 text-xl text-center font-bold md:space-y-2 space-y-2">
-                                <Link to={`/myListCardUpdate/${card._id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Update</button></Link>
-                                <button onClick={() => handleDelete(card._id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                                <Link to={`/myListCardUpdate/${card._id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"><FaRegEdit /></button></Link>
+                                <button onClick={() => handleDelete(card._id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"><RiDeleteBin5Line /></button>
                             </td>
                         </tr>
                     ))}
