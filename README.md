@@ -20,7 +20,7 @@
 ### Cloning and Running Locally
 #### To clone and run "Dev's Tourism" locally, follow these steps:
 - **Clone the repository from GitHub:git clone** [https://github.com/deveshbis/tourism-management-client-site](https://github.com/deveshbis/tourism-management-client-site)
-- **Navigate into the project directory: <code>** cd project-directory</code></li>
+- **Navigate into the project directory: <code>** cd tourism-management-client-site
 - **Install dependencies:** npm install
 - **Set up environment variables** Create a .env file with necessary configurations (database URI, API keys, etc.).
 - **tart the development server:** nodemon index.js
