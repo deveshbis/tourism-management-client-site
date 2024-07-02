@@ -1,7 +1,8 @@
 # Dev's Tourism Project
 
 ### Project Overview:
-- Dev's Tourism is a web platform aimed at showcasing and exploring tourist spots in Southeast Asia. It provides a centralized hub for users to discover and contribute information about various destinations, addressing the challenge of scattered tourism data.
+- **Project Concept:** Dev's Tourism is a web platform aimed at showcasing and exploring tourist spots in Southeast Asia. It provides a centralized hub for users to discover and contribute information about various destinations, addressing the challenge of scattered tourism data.
+- **Problem it Solves:** Enhances accessibility with responsive design, enables user contributions, engages with dynamic features, ensures secure authentication, and provides comprehensive tourist spot information.
 
 ### Features:
 - **Responsive Design:** Ensures seamless usability across devices, from desktops to smartphones, enhancing accessibility for all users.
