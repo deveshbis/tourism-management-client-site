@@ -15,7 +15,7 @@ const CountryInfo = () => {
     })
 
     return (
-        <div>
+        <div className="mt-10">
             <h2 className="text-4xl font-extrabold text-center">Count
                 <span>{text}</span>
                 <Cursor cursorColor='green' />

@@ -24,10 +24,10 @@ const Home = () => {
 
     return (
         <div>
-            <div className="mt-10">
+            <div>
                 <Banner></Banner>
             </div>
-            <div>
+            <div className="mt-10">
                 <h2 className="text-4xl font-extrabold text-center">Tourists
                     <span>{text}</span>
                     <Cursor cursorColor='green' />
@@ -35,7 +35,7 @@ const Home = () => {
                 <Fade duration={3000}>
                     <p className="text-center font-semibold">Discover breathtaking tourist spots worldwide. From iconic landmarks to hidden gems, explore diverse cultures and natural wonders. <br />Plan your next adventure and immerse yourself in unforgettable experiences.</p>
                 </Fade>
-                <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-5 p-3">
+                <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-5">
                     {
                         allpost.map(postCard => <ToristSpotCard key={postCard.id} allpost={postCard}></ToristSpotCard>)
                     }

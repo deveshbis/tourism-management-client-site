@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
 import { useEffect, useState } from "react";
-import Logo from '../assets/TourismLogo.png'
+import Logo from '../assets/TourismLogo.png';
 
 
 const NavBar = () => {

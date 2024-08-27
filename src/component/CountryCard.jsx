@@ -1,25 +1,23 @@
 import PropTypes from "prop-types";
-import { Bounce, Flip, Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const CountryCard = ({ item }) => {
     const { image, country, description } = item;
     return (
         <Link to={`/touristSpot/${country}`} className="cursor-pointer">
-            <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
-                <div>
-                    <Flip duration={3000}>
-                        <img src={image} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500" />
-                    </Flip>
-                    <Slide>
-                        <h2 className="mb-1 text-xl font-semibold">{country}</h2>
-                    </Slide>
-                    <Bounce>
-                        <p className="text-sm dark:text-gray-600">{description}</p>
-                    </Bounce>
+            <div className="bg-white font-[sans-serif]">
+                <div className="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative group">
+                    <img src={image} alt="Blog Post 1" className="w-full h-96 object-cover" />
+                    <div className="p-6 absolute bottom-0 left-0 right-0 bg-white opacity-90">
+                        <h3 className="text-xl font-bold text-[#333]">{country}</h3>
+                        <div className="h-0 overflow-hidden group-hover:h-16 group-hover:mt-4 transition-all duration-300">
+                            <p className="text-gray-600 text-sm">{description}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </Link>
+
     );
 };
 
