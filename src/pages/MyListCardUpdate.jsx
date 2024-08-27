@@ -11,7 +11,7 @@ const MyListCardUpdate = () => {
 
   useEffect(() => {
 
-    fetch(`http://localhost:5000/updateData/${id}`)
+    fetch(`https://food-master-murex.vercel.app/updateData/${id}`)
       .then(res => res.json())
       .then(data => {
         setUpdate(data)
