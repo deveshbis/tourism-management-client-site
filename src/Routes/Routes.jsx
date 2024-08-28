@@ -75,6 +75,14 @@ const router = createBrowserRouter([
         </PrivateRoute>,
       },
 
+      {
+        path: "/touristSpot/:country",
+        element: <PrivateRoute>
+          <AllTouristsSpot></AllTouristsSpot>
+        </PrivateRoute>,
+        loader: () => fetch('https://tourism-management-server-site.vercel.app/userData'),
+      },
+
 
     ]
   },

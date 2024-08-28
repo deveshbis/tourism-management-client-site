@@ -35,23 +35,6 @@ const ViewDetails = () => {
                 <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12">
                     <div className="min-h-[500px] lg:col-span-3 bg-gradient-to-tr  from-[#F8C794] via-[#FFE0B5] to-[#FFF2D7] rounded-lg w-full lg:sticky top-0 text-center p-6">
                         <img src={details.image} alt="Product" className="w-full rounded object-cover mx-auto py-6" />
-
-                        {/* <hr className="border-white border my-6" /> */}
-
-                        {/* <div className="flex flex-wrap gap-x-4 gap-y-6 justify-center mx-auto">
-                            <div className="w-20 h-20 max-lg:w-16 max-lg:h-16 bg-[#fff2c9] p-3 rounded-lg">
-                                <img src="https://readymadeui.com/images/coffee6.webp" alt="Product1" className="w-full h-full cursor-pointer" />
-                            </div>
-                            <div className="w-20 h-20 max-lg:w-16 max-lg:h-16 bg-[#fff2c9] p-3 rounded-lg">
-                                <img src="https://readymadeui.com/images/coffee3.webp" alt="Product1" className="w-full h-full cursor-pointer" />
-                            </div>
-                            <div className="w-20 h-20 max-lg:w-16 max-lg:h-16 bg-[#fff2c9] p-3 rounded-lg">
-                                <img src="https://readymadeui.com/images/coffee4.webp" alt="Product1" className="w-full h-full cursor-pointer" />
-                            </div>
-                            <div className="w-20 h-20 max-lg:w-16 max-lg:h-16 bg-[#fff2c9] p-3 rounded-lg">
-                                <img src="https://readymadeui.com/images/coffee5.webp" alt="Product1" className="w-full h-full cursor-pointer" />
-                            </div>
-                        </div> */}
                     </div>
 
                     <div className="lg:col-span-2">
@@ -97,6 +80,7 @@ const ViewDetails = () => {
                         </div>
 
                         <button type="button" className="w-full mt-8 px-6 py-3 bg-orange-400 hover:bg-orange-500 text-white text-sm font-semibold rounded-md">Reviews(10)</button>
+
                         <div className="mt-8">
                             
                             <div className="space-y-3 mt-4">
@@ -196,7 +180,7 @@ const ViewDetails = () => {
                                     <p className="text-xs mt-4">The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
