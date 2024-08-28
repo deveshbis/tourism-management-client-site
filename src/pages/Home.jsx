@@ -37,7 +37,7 @@ const Home = () => {
                 </Fade>
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-5">
                     {
-                        allpost.map(postCard => <ToristSpotCard key={postCard.id} allpost={postCard}></ToristSpotCard>)
+                        allpost.map(postCard => <ToristSpotCard key={postCard._id} allpost={postCard}></ToristSpotCard>)
                     }
                 </div>
 

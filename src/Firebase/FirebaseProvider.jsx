@@ -10,7 +10,7 @@ export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 const gitHubProvider = new GithubAuthProvider();
 
-const FirebaseProvider = ({children}) => {
+const FirebaseProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -42,10 +42,8 @@ const FirebaseProvider = ({children}) => {
 
     //logout user
     const logoutUser = () => {
-        setLoading(true)
-        setUser(null)
+        setUser(null);
         signOut(auth);
-        setReload(prevState => !prevState);
     }
 
 
@@ -53,12 +51,12 @@ const FirebaseProvider = ({children}) => {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                setLoading(false) 
+                setLoading(false)
             }
-            else{
-                setLoading(false); 
+            else {
+                setLoading(false);
             }
-            
+
         });
         return () => unSubscribe();
     }, [reload])

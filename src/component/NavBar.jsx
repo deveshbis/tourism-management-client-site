@@ -147,7 +147,7 @@ const NavBar = () => {
                         </div>
                             :
                             <Link to='/login'>
-                                <button className="btn btn-sm  btn-ghost">Login</button>
+                                <button className="btn btn-sm  btn-ghost text-white">Login</button>
                             </Link>
                     }
               
