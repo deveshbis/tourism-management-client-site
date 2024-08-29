@@ -1,14 +1,25 @@
-import { useState } from "react";
-import { Link, Navigate, useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import useAuth from "../Hook/useAuth";
 
 
 const MyList = () => {
-    const useLoaded = useLoaderData();
-    const [spotCard, setSpotCard] = useState(useLoaded);
+    // const useLoaded = useLoaderData();
+    // const [spotCard, setSpotCard] = useState(useLoaded);
+    const [spotCard, setSpotCard] = useState([]);
 
     const { user, loading } = useAuth();
+
+    useEffect(() =>{
+        fetch(`http://localhost:5000/myList/${user?.email}`)
+        .then(res => res.json()
+        .then(data =>{
+            // console.log(data);
+            setSpotCard(data)
+        })
+        )
+    },[user])
 
     if (loading) {
         return <div className="flex justify-center items-center mt-48 mb-48">

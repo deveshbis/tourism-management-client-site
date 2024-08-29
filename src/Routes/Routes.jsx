@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyList></MyList>
         </PrivateRoute>,
-        loader: () => fetch('https://tourism-management-server-site.vercel.app/userData'),
+        // loader: () => fetch('https://tourism-management-server-site.vercel.app/userData'),
       },
       {
         path: '/myListCardUpdate/:id',
