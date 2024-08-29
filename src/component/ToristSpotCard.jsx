@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 // import { Bounce, Fade, Flip, Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
-const ToristSpotCard = ({ allpost }) => {
-    const { _id, image, spotsName, cost, description } = allpost;
+const ToristSpotCard = ({ postCard }) => {
+    const { _id, image, spotsName, cost, description } = postCard;
     return (
         <div>
 
